@@ -1,0 +1,36 @@
+version: "3.1"
+
+networks:
+  laravel:
+    external: false
+
+services:
+  mariadb:
+    image: "mariadb:latest"
+    ports:
+      - "3310:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: "pass"
+      MARIADB_DATABASE: "laravel"
+    networks:
+      laravel:
+        aliases:
+          - mariadb
+
+  app:
+    image: "bitnami/laravel:latest"
+    ports:
+      - "8002:8000"
+    environment:
+      - DB_HOST=mariadb
+      - DB_PORT=3310
+      - DB_USERNAME=root
+      - DB_PASSWORD=pass
+    networks:
+      laravel:
+        aliases:
+          - app
+    volumes:
+      - '../app:/app'
+    depends_on:
+      - mariadb
