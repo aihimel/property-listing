@@ -2,3 +2,4 @@
 app/vendor
 app/storage
 docker/**/*.env
+/scratchpad.txt
