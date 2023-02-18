@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\PropertyGroupController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PropertyController;
@@ -38,3 +39,25 @@ Route::delete(
     'properties',
     [PropertyController::class, 'delete']
 )->name('api.properties.delete');
+
+
+// Property Group
+Route::get(
+    'property-groups',
+    [PropertyGroupController::class, 'index']
+)->name('api.property_groups.index');
+
+Route::post(
+    'property-groups',
+    [PropertyGroupController::class, 'store']
+)->name('api.property_groups.store');
+
+Route::put(
+    'property-groups/{property_group}',
+    [PropertyGroupController::class, 'update']
+)->name('api.property_groups.update');
+
+Route::delete(
+    'property-groups',
+    [PropertyGroupController::class, 'delete']
+)->name('api.property_groups.delete');
