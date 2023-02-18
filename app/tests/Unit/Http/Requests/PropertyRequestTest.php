@@ -4,7 +4,6 @@ namespace Tests\Unit\Http\Requests;
 
 use App\Models\Property;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-//use PHPUnit\Framework\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
