@@ -24,7 +24,8 @@ class PropertyGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:256']
+            'title' => ['required', 'max:256'],
+            'description' => ['required']
         ];
     }
 }

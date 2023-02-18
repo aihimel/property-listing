@@ -47,4 +47,20 @@ class PropertyGroupRequestTest extends TestCase
 
     }
 
+    /** @test */
+    public function description_is_required()
+    {
+        $validationField = 'description';
+        $brokenRule = null;
+        $property = Property::factory()->make([
+            $validationField => $brokenRule
+        ]);
+
+        $this->postJson(
+            route($this->routePrefix . 'store'),
+            $property->toArray()
+        )->assertJsonValidationErrors($validationField);
+        $this->withoutExceptionHandling();
+    }
+
 }
