@@ -79,15 +79,13 @@ class PropertiesTest extends TestCase
     /** @test */
     public function can_delete_a_property()
     {
-        $newProperty = Property::factory()->create();
-        $response = $this->deleteJson(
-            route($this->routePrefix . 'delete'),
-            $newProperty->toArray()
-        );
-        $response->assertNoContent();
+        $property = Property::factory()->create();
+        $this->deleteJson(
+            route($this->routePrefix . 'delete', $property)
+        )->assertNoContent();
         $this->assertDatabaseMissing(
             'properties',
-            $newProperty->toArray()
+            $property->toArray()
         );
     }
 }

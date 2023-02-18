@@ -58,6 +58,6 @@ Route::put(
 )->name('api.property_groups.update');
 
 Route::delete(
-    'property-groups',
+    'property-groups/{property_group}',
     [PropertyGroupController::class, 'delete']
 )->name('api.property_groups.delete');
