@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\API\PropertyController;
 use App\Http\Controllers\API\PropertyGroupController;
+use App\Http\Controllers\API\StructureTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,25 @@ Route::delete(
     'property-groups/{property_group}',
     [PropertyGroupController::class, 'delete']
 )->name('api.property_groups.delete');
+
+
+// Structure Types
+Route::get(
+    'structure-types',
+    [StructureTypeController::class, 'index']
+)->name('api.structure_types.index');
+
+Route::post(
+    'structure-types',
+    [StructureTypeController::class, 'store']
+)->name('api.structure_types.store');
+
+Route::put(
+    'structure-types/{structure_type}',
+    [StructureTypeController::class, 'update']
+)->name('api.structure_types.update');
+
+Route::delete(
+    'structure-types/{structure_types}',
+    [StructureTypeController::class, 'delete']
+)->name('api.structure_types.delete');

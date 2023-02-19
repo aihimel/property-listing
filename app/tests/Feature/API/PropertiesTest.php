@@ -23,12 +23,14 @@ class PropertiesTest extends TestCase
         );
         $response->assertOk();
         $response->assertJson([
-            'data' => [[
-                'id' => $property->id,
-                'type' => $property->type,
-                'price' => $property->price,
-                'description' => $property->description,
-            ]]
+            'data' => [
+                [
+                    'id' => $property->id,
+                    'type' => $property->type,
+                    'price' => $property->price,
+                    'description' => $property->description,
+                ]
+            ]
         ]);
     }
 
